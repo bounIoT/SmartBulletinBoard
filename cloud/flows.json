@@ -1,0 +1,1077 @@
+[
+    {
+        "id": "deb0d57.1c46528",
+        "type": "tab",
+        "label": "Student",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c2afaf72.3f5dd",
+        "type": "tab",
+        "label": "Advertiser",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "c4edf853.45f9b8",
+        "type": "tab",
+        "label": "Api",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fbcac9c5.f48178",
+        "type": "ui_base",
+        "z": 0,
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#197f43",
+                "baseFont": "Arial,Arial,Helvetica,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#197f43",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#197f43",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#26bf65",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#197f43",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Arial,Arial,Helvetica,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Hands On Session 3",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "c00ff14e.04f38",
+        "type": "ui_tab",
+        "z": 0,
+        "name": "Stats",
+        "icon": "dashboard"
+    },
+    {
+        "id": "5283ecb2.f73884",
+        "type": "ui_group",
+        "z": 0,
+        "name": "Emrak UI Light",
+        "tab": "c00ff14e.04f38",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "9bb42b4d.7653e8",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "ds217970.mlab.com",
+        "port": "17970",
+        "db": "smart_board_db",
+        "name": "smart board db"
+    },
+    {
+        "id": "8214f40a.e8ffd8",
+        "type": "http in",
+        "z": "deb0d57.1c46528",
+        "name": "Student Register Page",
+        "url": "/student",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 418,
+        "y": 492,
+        "wires": [
+            [
+                "6d409ce2.39b1f4"
+            ]
+        ]
+    },
+    {
+        "id": "6d409ce2.39b1f4",
+        "type": "template",
+        "z": "deb0d57.1c46528",
+        "name": "Student Register Page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js\"></script>\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\n\n\t\t<!-- Website CSS style -->\n\t\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n\t\t<style>\n\t\t    /*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tbackground:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n\n\t\t</style>\n\n\t\t<!-- Website Font style -->\n\t    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css\">\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<!-- Google Fonts -->\n\t\t<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>\n\t\t<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>\n\n\t\t<title>Student</title>\n\t</head>\n\t<body>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row main\">\n\t\t\t\t<div class=\"main-login main-center\">\n\t\t\t\t<h5>Sign up to send your contact info directly.</h5>\n\t\t\t\t\t<form class=\"\" method=\"post\" action=\"#\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"name\" class=\"cols-sm-2 control-label\">Your Name</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\"  placeholder=\"Enter your Name\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"email\" class=\"cols-sm-2 control-label\">Your Email</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-envelope fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"email\" id=\"email\"  placeholder=\"Enter your Email\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"student_id\" class=\"cols-sm-2 control-label\">Your Student ID</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-users fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"student_id\" id=\"student_id\"  placeholder=\"Enter your Student id\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"cv\" class=\"cols-sm-2 control-label\">Your CV</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-lock fa-lg\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"cv\" id=\"cv\"  placeholder=\"Enter your CV link\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"dep\" class=\"cols-sm-2 control-label\">Your Department</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-lock fa-lg\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"dep\" id=\"dep\"  placeholder=\"Enter Your Department\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"form-group \">\n\t\t\t\t\t\t\t<button id=\"button_1\" value=\"val_1\" name=\"but1\">Register</button>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n    <script>\n    $(\"#button_1\").on(\"click\", function(e) {\n    e.preventDefault();\n    $.ajax({type: \"POST\",\n        url: \"/register_student\",\n        data: { \n            name: $(\"#name\").val(),\n            email: $(\"#email\").val(),\n            cv: $(\"#cv\").val(),\n            student_id: $(\"#student_id\").val(),\n            dep: $(\"#dep\").val(),\n        },\n        success:function(result) {\n          alert('Succesfully Registered');\n          location.href = \"https://hands-on-3.eu-gb.mybluemix.net/home\"\n        },\n        error:function(result) {\n          alert('error');\n        }\n    });\n});\n\n    </script>\n\t\t <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n    <!-- Include all compiled plugins (below), or include individual files as needed -->\n    <script src=\"js/bootstrap.min.js\"></script>\n\t</body>\n</html>",
+        "output": "str",
+        "x": 690,
+        "y": 503,
+        "wires": [
+            [
+                "b96db45d.00ebe8"
+            ]
+        ]
+    },
+    {
+        "id": "b96db45d.00ebe8",
+        "type": "http response",
+        "z": "deb0d57.1c46528",
+        "name": "Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 990,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "dabeb125.232ba",
+        "type": "http in",
+        "z": "deb0d57.1c46528",
+        "name": "Student Register",
+        "url": "/student",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 125,
+        "y": 378,
+        "wires": [
+            [
+                "adca8d01.824f"
+            ]
+        ]
+    },
+    {
+        "id": "adca8d01.824f",
+        "type": "debug",
+        "z": "deb0d57.1c46528",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 327,
+        "y": 381,
+        "wires": []
+    },
+    {
+        "id": "9cc57c0a.79033",
+        "type": "http in",
+        "z": "deb0d57.1c46528",
+        "name": "stu reg",
+        "url": "/register_student",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 395,
+        "y": 673,
+        "wires": [
+            [
+                "8bc9b8f6.5875a8",
+                "95dbc9c5.782468",
+                "8c16190e.591898"
+            ]
+        ]
+    },
+    {
+        "id": "8bc9b8f6.5875a8",
+        "type": "debug",
+        "z": "deb0d57.1c46528",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 696,
+        "y": 646,
+        "wires": []
+    },
+    {
+        "id": "95dbc9c5.782468",
+        "type": "mongodb out",
+        "z": "deb0d57.1c46528",
+        "service": "_ext_",
+        "mongodb": "9bb42b4d.7653e8",
+        "name": "Store Student",
+        "collection": "Student",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 863,
+        "y": 715,
+        "wires": []
+    },
+    {
+        "id": "8c16190e.591898",
+        "type": "http response",
+        "z": "deb0d57.1c46528",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 529,
+        "y": 625,
+        "wires": []
+    },
+    {
+        "id": "56cdba3.465ea44",
+        "type": "http in",
+        "z": "deb0d57.1c46528",
+        "name": "Homepage",
+        "url": "/home",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 553,
+        "y": 323,
+        "wires": [
+            [
+                "4c0ff30c.3849ec"
+            ]
+        ]
+    },
+    {
+        "id": "4c0ff30c.3849ec",
+        "type": "template",
+        "z": "deb0d57.1c46528",
+        "name": "HomePage",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js\"></script>\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\n\n\t\t<!-- Website CSS style -->\n\t\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n\t\t<style>\n\t\t    /*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tbackground:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n\n\t\t</style>\n\n\t\t<!-- Website Font style -->\n\t    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css\">\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<!-- Google Fonts -->\n\t\t<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>\n\t\t<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>\n\n\t\t<title>HomePage for Smart Board Systems</title>\n\t</head>\n\t<body>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row main\">\n\t\t\t\t<div class=\"main-login main-center\">\n\t\t\t\t<h5>Sign up to send your contact info directly.</h5>\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t<div class=\"form-group \">\n\t\t\t\t\t\t\t<a href=\"https://hands-on-3.eu-gb.mybluemix.net/adveren\"  type=\"button\" id=\"button\" class=\"btn btn-primary btn-lg btn-block login-button\">Customer Register</a>\n\t\t\t\t\t\t</div>\n\n                    <div class=\"form-group \">\n\t\t\t\t\t\t\t<a href=\"https://hands-on-3.eu-gb.mybluemix.net/adveren_login\"  type=\"button\" id=\"button\" class=\"btn btn-primary btn-lg btn-block login-button\">Customer Log-in</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"form-group \">\n\t\t\t\t\t\t\t<a href=\"https://hands-on-3.eu-gb.mybluemix.net/student\"  type=\"button\" id=\"button\" class=\"btn btn-primary btn-lg btn-block login-button\">Student Register</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n    \n\t\t <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n    <!-- Include all compiled plugins (below), or include individual files as needed -->\n    <script src=\"js/bootstrap.min.js\"></script>\n\t</body>\n</html>",
+        "output": "str",
+        "x": 796,
+        "y": 323,
+        "wires": [
+            [
+                "3baf20fe.80d19"
+            ]
+        ]
+    },
+    {
+        "id": "3baf20fe.80d19",
+        "type": "http response",
+        "z": "deb0d57.1c46528",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1022,
+        "y": 321,
+        "wires": []
+    },
+    {
+        "id": "c8266e48.dde76",
+        "type": "http in",
+        "z": "c2afaf72.3f5dd",
+        "name": "adveren request",
+        "url": "/adveren",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 389,
+        "y": 341,
+        "wires": [
+            [
+                "dd3f4c0f.b9fb5"
+            ]
+        ]
+    },
+    {
+        "id": "dd3f4c0f.b9fb5",
+        "type": "template",
+        "z": "c2afaf72.3f5dd",
+        "name": "adveren Page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js\"></script>\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\n\n\t\t<!-- Website CSS style -->\n\t\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n\t\t<style>\n\t\t    /*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tbackground:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n\n\t\t</style>\n\n\t\t<!-- Website Font style -->\n\t    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css\">\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<!-- Google Fonts -->\n\t\t<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>\n\t\t<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>\n\n\t\t<title>Customer Register</title>\n\t</head>\n\t<body>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row main\">\n\t\t\t\t<div class=\"main-login main-center\">\n\t\t\t\t<h5>Sign up to send your contact info directly.</h5>\n\t\t\t\t\t<form class=\"\" method=\"post\" action=\"#\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"name\" class=\"cols-sm-2 control-label\">Your Name</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\"  placeholder=\"Enter your Name\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"email\" class=\"cols-sm-2 control-label\">Your Email</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-envelope fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"email\" id=\"email\"  placeholder=\"Enter your Email\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"password\" class=\"cols-sm-2 control-label\">Your Password</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-envelope fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" name=\"password\" id=\"password\"  placeholder=\"Enter your Password\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"form-group \">\n\t\t\t\t\t\t\t<button id=\"button_1\" value=\"val_1\" name=\"but1\">Register</button>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n    <script>\n    $(\"#button_1\").on(\"click\", function(e) {\n    e.preventDefault();\n    $.ajax({type: \"POST\",\n        url: \"/register_adveren\",\n        data: { \n            name: $(\"#name\").val(),\n            email: $(\"#email\").val(),\n            password: $(\"#password\").val()\n        },\n        success:function(result) {\n          alert('Successfully Registered');\n          location.href = \"https://hands-on-3.eu-gb.mybluemix.net/home\"\n        },\n        error:function(result) {\n          alert('error');\n        }\n    });\n});\n\n    </script>\n\t\t <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n    <!-- Include all compiled plugins (below), or include individual files as needed -->\n    <script src=\"js/bootstrap.min.js\"></script>\n\t</body>\n</html>",
+        "output": "str",
+        "x": 638,
+        "y": 352,
+        "wires": [
+            [
+                "58b58b72.6ecf84"
+            ]
+        ]
+    },
+    {
+        "id": "58b58b72.6ecf84",
+        "type": "http response",
+        "z": "c2afaf72.3f5dd",
+        "name": "Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 857,
+        "y": 346,
+        "wires": []
+    },
+    {
+        "id": "62abebce.fb8074",
+        "type": "http in",
+        "z": "c2afaf72.3f5dd",
+        "name": "ad reg",
+        "url": "/register_adveren",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 386,
+        "y": 522,
+        "wires": [
+            [
+                "3c9d6d1a.ccb4c2",
+                "b38be776.bc82b8"
+            ]
+        ]
+    },
+    {
+        "id": "3c9d6d1a.ccb4c2",
+        "type": "mongodb out",
+        "z": "c2afaf72.3f5dd",
+        "service": "_ext_",
+        "mongodb": "9bb42b4d.7653e8",
+        "name": "Store Student",
+        "collection": "Customer",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 854,
+        "y": 564,
+        "wires": []
+    },
+    {
+        "id": "b38be776.bc82b8",
+        "type": "http response",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 520,
+        "y": 474,
+        "wires": []
+    },
+    {
+        "id": "2df80c8e.2d0494",
+        "type": "http in",
+        "z": "c2afaf72.3f5dd",
+        "name": "adveren login",
+        "url": "/adveren_login",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 303,
+        "y": 176,
+        "wires": [
+            [
+                "1454f41c.c6759c"
+            ]
+        ]
+    },
+    {
+        "id": "51d56af4.446114",
+        "type": "mongodb in",
+        "z": "c2afaf72.3f5dd",
+        "service": "_ext_",
+        "mongodb": "9bb42b4d.7653e8",
+        "name": "Find Customer",
+        "collection": "Customer",
+        "operation": "find",
+        "x": 722,
+        "y": 184,
+        "wires": [
+            [
+                "a4fc5157.ccb3d",
+                "cb9b08f7.f1e0f8"
+            ]
+        ]
+    },
+    {
+        "id": "1454f41c.c6759c",
+        "type": "function",
+        "z": "c2afaf72.3f5dd",
+        "name": "Find user",
+        "func": "msg.payload= {name: msg.payload.name, password: msg.payload.password}\nmsg.limit = 1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 507,
+        "y": 182,
+        "wires": [
+            [
+                "51d56af4.446114"
+            ]
+        ]
+    },
+    {
+        "id": "a4fc5157.ccb3d",
+        "type": "debug",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 930,
+        "y": 82,
+        "wires": []
+    },
+    {
+        "id": "acc57aca.7aa718",
+        "type": "http in",
+        "z": "c2afaf72.3f5dd",
+        "name": "adveren login page",
+        "url": "/adveren_login",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 299,
+        "y": 249,
+        "wires": [
+            [
+                "2016ec9a.2b6514"
+            ]
+        ]
+    },
+    {
+        "id": "2016ec9a.2b6514",
+        "type": "template",
+        "z": "c2afaf72.3f5dd",
+        "name": "adveren login page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js\"></script>\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\n\n\t\t<!-- Website CSS style -->\n\t\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n\t\t<style>\n\t\t    /*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tbackground:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n\n\t\t</style>\n\n\t\t<!-- Website Font style -->\n\t    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css\">\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<!-- Google Fonts -->\n\t\t<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>\n\t\t<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>\n\n\t\t<title>Customer Register</title>\n\t</head>\n\t<body>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row main\">\n\t\t\t\t<div class=\"main-login main-center\">\n\t\t\t\t<h5>Sign up to send your contact info directly.</h5>\n\t\t\t\t\t<form class=\"\" method=\"post\" action=\"#\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"name\" class=\"cols-sm-2 control-label\">Your Name</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\"  placeholder=\"Enter your Name\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"password\" class=\"cols-sm-2 control-label\">Your Password</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-envelope fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" name=\"password\" id=\"password\"  placeholder=\"Enter your Password\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"form-group \">\n\t\t\t\t\t\t\t<button id=\"button_1\" value=\"val_1\" name=\"but1\">Log-in</button>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n    <script>\n    $(\"#button_1\").on(\"click\", function(e) {\n    e.preventDefault();\n    $.ajax({type: \"POST\",\n        url: \"/adveren_login\",\n        data: { \n            name: $(\"#name\").val(),\n            password: $(\"#password\").val()\n        },\n        success:function(result) {\n          if(result.length>0){\n            alert('Successfully login');\n            location.href = \"https://hands-on-3.eu-gb.mybluemix.net/adveren_home/\" + result[0].name;\n          }else{\n              alert('Log in Failed');\n          }\n          \n        },\n        error:function(result) {\n          alert('error');\n        }\n    });\n});\n\n    </script>\n\t\t <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n    <!-- Include all compiled plugins (below), or include individual files as needed -->\n    <script src=\"js/bootstrap.min.js\"></script>\n\t</body>\n</html>",
+        "output": "str",
+        "x": 622,
+        "y": 264,
+        "wires": [
+            [
+                "ed7dcdeb.69f9e"
+            ]
+        ]
+    },
+    {
+        "id": "ed7dcdeb.69f9e",
+        "type": "http response",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 847,
+        "y": 254,
+        "wires": []
+    },
+    {
+        "id": "cb9b08f7.f1e0f8",
+        "type": "http response",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1066,
+        "y": 184,
+        "wires": []
+    },
+    {
+        "id": "fc484d00.8b1a2",
+        "type": "http in",
+        "z": "c2afaf72.3f5dd",
+        "name": "adveren home",
+        "url": "/adveren_home/:custname",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 319,
+        "y": 673,
+        "wires": [
+            [
+                "8f4a44a0.fed9e8"
+            ]
+        ]
+    },
+    {
+        "id": "14012c68.903c64",
+        "type": "http response",
+        "z": "c2afaf72.3f5dd",
+        "name": "200",
+        "statusCode": "",
+        "headers": {},
+        "x": 1012,
+        "y": 675,
+        "wires": []
+    },
+    {
+        "id": "8f4a44a0.fed9e8",
+        "type": "template",
+        "z": "c2afaf72.3f5dd",
+        "name": "Adveren Home Page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js\"></script>\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\n\n\t\t<!-- Website CSS style -->\n\t\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n\t\t<style>\n\t\t    /*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tbackground:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n\n\t\t</style>\n\n\t\t<!-- Website Font style -->\n\t    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css\">\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<!-- Google Fonts -->\n\t\t<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>\n\t\t<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>\n\n\t\t<title>Customer </title>\n\t</head>\n\t<body>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row main\">\n\t\t\t\t<div class=\"main-login main-center\">\n\t\t\t\t<h5>Hello {{req.params.custname}} !!</h5>\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t<div class=\"form-group \">\n\t\t\t\t\t\t\t<a href=\"https://hands-on-3.eu-gb.mybluemix.net/adveren/{{req.params.custname}}/newad\"  type=\"button\" id=\"button\" class=\"btn btn-primary btn-lg btn-block login-button\">Add a new ad</a>\n\t\t\t\t\t\t</div>\n\n                    <div class=\"form-group \">\n\t\t\t\t\t\t\t<a href=\"https://hands-on-3.eu-gb.mybluemix.net/ad_reports/{{req.params.custname}}\"  type=\"button\" id=\"button\" class=\"btn btn-primary btn-lg btn-block login-button\">Manage your ads</a>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n    \n\t\t <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n    <!-- Include all compiled plugins (below), or include individual files as needed -->\n    <script src=\"js/bootstrap.min.js\"></script>\n\t</body>\n</html>",
+        "output": "str",
+        "x": 712,
+        "y": 673,
+        "wires": [
+            [
+                "14012c68.903c64"
+            ]
+        ]
+    },
+    {
+        "id": "f8997809.1b84b8",
+        "type": "http in",
+        "z": "c2afaf72.3f5dd",
+        "name": "add a new ad",
+        "url": "/adveren/:custname/newad",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 315,
+        "y": 859,
+        "wires": [
+            [
+                "ab316f3.665ed9"
+            ]
+        ]
+    },
+    {
+        "id": "ab316f3.665ed9",
+        "type": "template",
+        "z": "c2afaf72.3f5dd",
+        "name": "Add ad page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js\"></script>\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\n\n\t\t<!-- Website CSS style -->\n\t\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n\t\t<style>\n\t\t    /*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tbackground:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n\n\t\t</style>\n\n\t\t<!-- Website Font style -->\n\t    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css\">\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<!-- Google Fonts -->\n\t\t<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>\n\t\t<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>\n\n\t\t<title>Customer Register</title>\n\t</head>\n\t<body>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row main\">\n\t\t\t\t<div class=\"main-login main-center\">\n\t\t\t\t<h5>Publish your ad.</h5>\n\t\t\t\t\t<form class=\"\" method=\"post\" action=\"#\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"adlink\" class=\"cols-sm-2 control-label\">Your Adlink</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"adlink\" id=\"adlink\"  placeholder=\"Enter your adlink\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"ad_name\" class=\"cols-sm-2 control-label\">Your Ad Name</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"ad_name\" id=\"ad_name\"  placeholder=\"Enter your adname\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"preferred_dep\" class=\"cols-sm-2 control-label\">Your preferred department</label>\n\t\t\t\t\t\t\t<div class=\"cols-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-envelope fa\" aria-hidden=\"true\"></i></span>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"preferred_dep\" id=\"preferred_dep\"  placeholder=\"Enter your preferred department\"/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"form-group \">\n\t\t\t\t\t\t\t<button id=\"button_1\" value=\"val_1\" name=\"button_1\">Publish</button>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n    <script>\n    $(\"#button_1\").on(\"click\", function(e) {\n    e.preventDefault();\n    $.ajax({type: \"POST\",\n        url: \"/add_ad\",\n        data: { \n            adlink: $(\"#adlink\").val(),\n            ad_name: $(\"#ad_name\").val(),\n            preferred_dep: $(\"#preferred_dep\").val(),\n            customer_name: \"{{req.params.custname}}\",\n            hovered_time: 0\n        },\n        success:function(result) {\n          alert('Successfully Published Ad');\n          location.href = \"https://hands-on-3.eu-gb.mybluemix.net/adveren_home/{{req.params.custname}}\"\n        },\n        error:function(result) {\n          alert('error');\n        }\n    });\n});\n\n    </script>\n\t\t <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n    <!-- Include all compiled plugins (below), or include individual files as needed -->\n    <script src=\"js/bootstrap.min.js\"></script>\n\t</body>\n</html>",
+        "output": "str",
+        "x": 627,
+        "y": 868,
+        "wires": [
+            [
+                "a5535cbb.7985b"
+            ]
+        ]
+    },
+    {
+        "id": "c2ae55ec.1ac768",
+        "type": "http in",
+        "z": "c2afaf72.3f5dd",
+        "name": "add post",
+        "url": "/add_ad",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 828,
+        "y": 863,
+        "wires": [
+            [
+                "df002810.0afb18",
+                "412245a4.6989fc",
+                "b615c706.f979a8"
+            ]
+        ]
+    },
+    {
+        "id": "df002810.0afb18",
+        "type": "http response",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1042,
+        "y": 796,
+        "wires": []
+    },
+    {
+        "id": "412245a4.6989fc",
+        "type": "debug",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1059,
+        "y": 841,
+        "wires": []
+    },
+    {
+        "id": "1d69277b.ebc039",
+        "type": "mongodb out",
+        "z": "c2afaf72.3f5dd",
+        "service": "_ext_",
+        "mongodb": "9bb42b4d.7653e8",
+        "name": "Store Ad",
+        "collection": "Ad",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 1174,
+        "y": 912,
+        "wires": []
+    },
+    {
+        "id": "a5535cbb.7985b",
+        "type": "http response",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 738,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "c50fcb7a.fad3c8",
+        "type": "http in",
+        "z": "c2afaf72.3f5dd",
+        "name": "stu reg",
+        "url": "/adveren/:custname/newad",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 313,
+        "y": 1038,
+        "wires": [
+            [
+                "4681f368.43ddec",
+                "dc3f66db.0747f8"
+            ]
+        ]
+    },
+    {
+        "id": "4681f368.43ddec",
+        "type": "debug",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 545,
+        "y": 1041,
+        "wires": []
+    },
+    {
+        "id": "dc3f66db.0747f8",
+        "type": "http response",
+        "z": "c2afaf72.3f5dd",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 545,
+        "y": 969,
+        "wires": []
+    },
+    {
+        "id": "b615c706.f979a8",
+        "type": "function",
+        "z": "c2afaf72.3f5dd",
+        "name": "reklam liste []",
+        "func": "msg.payload.applied_students_id=[];\nmsg.payload.hovered_time = 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1006,
+        "y": 977,
+        "wires": [
+            [
+                "1d69277b.ebc039"
+            ]
+        ]
+    },
+    {
+        "id": "8cb49c6f.de863",
+        "type": "http in",
+        "z": "c4edf853.45f9b8",
+        "name": "reports",
+        "url": "/ad_reports/:custname",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 196,
+        "y": 210,
+        "wires": [
+            [
+                "5a0c6f0f.3d288",
+                "7dbd59fe.1284e8"
+            ]
+        ]
+    },
+    {
+        "id": "5a0c6f0f.3d288",
+        "type": "function",
+        "z": "c4edf853.45f9b8",
+        "name": "Query",
+        "func": "msg.payload = {customer_name: msg.req.params.custname}\nmsg.limit=5;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 399,
+        "y": 212,
+        "wires": [
+            [
+                "d2b4b939.4079e8"
+            ]
+        ]
+    },
+    {
+        "id": "e04d0aeb.e9d728",
+        "type": "http response",
+        "z": "c4edf853.45f9b8",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 914,
+        "y": 232,
+        "wires": []
+    },
+    {
+        "id": "d2b4b939.4079e8",
+        "type": "mongodb in",
+        "z": "c4edf853.45f9b8",
+        "service": "_ext_",
+        "mongodb": "9bb42b4d.7653e8",
+        "name": "Ad finder",
+        "collection": "Ad",
+        "operation": "find",
+        "x": 576,
+        "y": 216,
+        "wires": [
+            [
+                "4b949d3b.5af3c4",
+                "b368a999.01e538"
+            ]
+        ]
+    },
+    {
+        "id": "4b949d3b.5af3c4",
+        "type": "debug",
+        "z": "c4edf853.45f9b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload[0].applied_students_id",
+        "x": 1038,
+        "y": 152,
+        "wires": []
+    },
+    {
+        "id": "7dbd59fe.1284e8",
+        "type": "debug",
+        "z": "c4edf853.45f9b8",
+        "name": "params",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 451,
+        "y": 151,
+        "wires": []
+    },
+    {
+        "id": "b368a999.01e538",
+        "type": "template",
+        "z": "c4edf853.45f9b8",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "\n<!------ Include the above in your HEAD tag ---------->\n<head>\n<link href=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"></script>\n<script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>\n<style>\n    html {\n    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;\n    font-size: 14px;\n}\n\nh5 {\n    font-size: 1.28571429em;\n    font-weight: 700;\n    line-height: 1.2857em;\n    margin: 0;\n}\n\n.card {\n    font-size: 1em;\n    overflow: hidden;\n    padding: 0;\n    border: none;\n    border-radius: .28571429rem;\n    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;\n}\n\n.card-block {\n    font-size: 1em;\n    position: relative;\n    margin: 0;\n    padding: 1em;\n    border: none;\n    border-top: 1px solid rgba(34, 36, 38, .1);\n    box-shadow: none;\n}\n\n.card-img-top {\n    display: block;\n    width: 100%;\n    height: auto;\n}\n\n.card-title {\n    font-size: 1.28571429em;\n    font-weight: 700;\n    line-height: 1.2857em;\n}\n\n.card-text {\n    clear: both;\n    margin-top: .5em;\n    color: rgba(0, 0, 0, .68);\n}\n\n.card-footer {\n    font-size: 1em;\n    position: static;\n    top: 0;\n    left: 0;\n    max-width: 100%;\n    padding: .75em 1em;\n    color: rgba(0, 0, 0, .4);\n    border-top: 1px solid rgba(0, 0, 0, .05) !important;\n    background: #fff;\n}\n\n.card-inverse .btn {\n    border: 1px solid rgba(0, 0, 0, .05);\n}\n\n.profile {\n    position: absolute;\n    top: -12px;\n    display: inline-block;\n    overflow: hidden;\n    box-sizing: border-box;\n    width: 25px;\n    height: 25px;\n    margin: 0;\n    border: 1px solid #fff;\n    border-radius: 50%;\n}\n\n.profile-avatar {\n    display: block;\n    width: 100%;\n    height: auto;\n    border-radius: 50%;\n}\n\n.profile-inline {\n    position: relative;\n    top: 0;\n    display: inline-block;\n}\n\n.profile-inline ~ .card-title {\n    display: inline-block;\n    margin-left: 4px;\n    vertical-align: top;\n}\n\n.text-bold {\n    font-weight: 700;\n}\n\n.meta {\n    font-size: 1em;\n    color: rgba(0, 0, 0, .4);\n}\n\n.meta a {\n    text-decoration: none;\n    color: rgba(0, 0, 0, .4);\n}\n\n.meta a:hover {\n    color: rgba(0, 0, 0, .87);\n}\n</style>\n</head>\n<body style=\"background-color:#9ce4ff;\">\n<div class=\"container\">\n        <div class=\"row\">\n            {{#payload}}\n            <div class=\"col-sm-4 col-md-6 col-lg-6 mt-4\">\n                <div class=\"card\">\n                    <img class=\"card-img-top\" src=\"{{adlink}}\">\n                    <div class=\"card-block\">\n                        <h4 class=\"card-title\">This ad is seen by {{hovered_time}} people.</h4>\n                        <div class=\"meta\">\n                            <a href=\"#\">Preferred Dep: {{preferred_dep}}</a>\n                        </div>\n                        <div class=\"card-text\">\n                            Your ad Stats\n                        </div>\n                    </div>\n                    <div class=\"card-footer\">\n                        {{#applied_students_id}}\n                        <span><i class=\"\"></i>{{id}}</span></br>\n                        {{/applied_students_id}}\n                    </div>\n                </div>\n            </div>\n            {{/payload}}\n        </div>\n        \n</div>\n</body>",
+        "output": "str",
+        "x": 752,
+        "y": 254,
+        "wires": [
+            [
+                "e04d0aeb.e9d728"
+            ]
+        ]
+    },
+    {
+        "id": "5fe64e04.136ed",
+        "type": "http in",
+        "z": "c4edf853.45f9b8",
+        "name": "görüldü",
+        "url": "/increment_ad_seen/",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 143,
+        "y": 402,
+        "wires": [
+            [
+                "f4087aa4.0944c8",
+                "e108f98b.57c9d8"
+            ]
+        ]
+    },
+    {
+        "id": "d0edc80d.4e5438",
+        "type": "mongodb out",
+        "z": "c4edf853.45f9b8",
+        "service": "_ext_",
+        "mongodb": "9bb42b4d.7653e8",
+        "name": "",
+        "collection": "Ad",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 695,
+        "y": 388,
+        "wires": []
+    },
+    {
+        "id": "f4087aa4.0944c8",
+        "type": "function",
+        "z": "c4edf853.45f9b8",
+        "name": "increment",
+        "func": "\nmsg.query = {\"ad_name\" : msg.payload.ad_name };\nmsg.payload = { $inc: { \"hovered_time\": msg.payload.amount }};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 405,
+        "wires": [
+            [
+                "d0edc80d.4e5438",
+                "92a81948.946138",
+                "e108f98b.57c9d8"
+            ]
+        ]
+    },
+    {
+        "id": "92a81948.946138",
+        "type": "http response",
+        "z": "c4edf853.45f9b8",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 768,
+        "y": 511,
+        "wires": []
+    },
+    {
+        "id": "e108f98b.57c9d8",
+        "type": "debug",
+        "z": "c4edf853.45f9b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 523,
+        "y": 329,
+        "wires": []
+    },
+    {
+        "id": "7132a41e.4633ec",
+        "type": "http in",
+        "z": "c4edf853.45f9b8",
+        "name": "basvurdu",
+        "url": "/apply",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 207,
+        "y": 639,
+        "wires": [
+            [
+                "e1a51137.133e",
+                "80c5e4ad.17e448"
+            ]
+        ]
+    },
+    {
+        "id": "fad12b9c.f06648",
+        "type": "mongodb out",
+        "z": "c4edf853.45f9b8",
+        "service": "_ext_",
+        "mongodb": "9bb42b4d.7653e8",
+        "name": "",
+        "collection": "Ad",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 749,
+        "y": 625,
+        "wires": []
+    },
+    {
+        "id": "e1a51137.133e",
+        "type": "function",
+        "z": "c4edf853.45f9b8",
+        "name": "increment",
+        "func": "\nmsg.query = {\"ad_name\" : msg.payload.ad_name };\nmsg.payload = { $push: { \"applied_students_id\": {\"id\":msg.payload.applier_id }}};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 444,
+        "y": 642,
+        "wires": [
+            [
+                "fad12b9c.f06648",
+                "4ce383bd.97139c",
+                "80c5e4ad.17e448"
+            ]
+        ]
+    },
+    {
+        "id": "4ce383bd.97139c",
+        "type": "http response",
+        "z": "c4edf853.45f9b8",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 822,
+        "y": 748,
+        "wires": []
+    },
+    {
+        "id": "80c5e4ad.17e448",
+        "type": "debug",
+        "z": "c4edf853.45f9b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 577,
+        "y": 566,
+        "wires": []
+    },
+    {
+        "id": "1f03c6ea.0037b9",
+        "type": "http in",
+        "z": "c4edf853.45f9b8",
+        "name": "get all ads",
+        "url": "/get_ads",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 226,
+        "y": 50,
+        "wires": [
+            [
+                "50045751.eab438"
+            ]
+        ]
+    },
+    {
+        "id": "155c63b7.3db52c",
+        "type": "mongodb in",
+        "z": "c4edf853.45f9b8",
+        "service": "_ext_",
+        "mongodb": "9bb42b4d.7653e8",
+        "name": "",
+        "collection": "Ad",
+        "operation": "find",
+        "x": 635,
+        "y": 56,
+        "wires": [
+            [
+                "d8a4013e.1e671"
+            ]
+        ]
+    },
+    {
+        "id": "50045751.eab438",
+        "type": "function",
+        "z": "c4edf853.45f9b8",
+        "name": "Query",
+        "func": "msg.limit=20;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 413,
+        "y": 55,
+        "wires": [
+            [
+                "155c63b7.3db52c"
+            ]
+        ]
+    },
+    {
+        "id": "d8a4013e.1e671",
+        "type": "http response",
+        "z": "c4edf853.45f9b8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 832,
+        "y": 76,
+        "wires": []
+    }
+]
