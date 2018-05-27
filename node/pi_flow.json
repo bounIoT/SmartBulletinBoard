@@ -1,0 +1,122 @@
+[
+    {
+        "id": "38e3ad55.ae27f2",
+        "type": "websocket out",
+        "z": "ea8f35ad.1d0438",
+        "name": "websocket out",
+        "server": "feac18a4.30b8c8",
+        "client": "",
+        "x": 827,
+        "y": 582,
+        "wires": []
+    },
+    {
+        "id": "a7c55675.193e38",
+        "type": "pi-gpiod in",
+        "z": "ea8f35ad.1d0438",
+        "name": "VY",
+        "host": "localhost",
+        "port": 8888,
+        "pin": "21",
+        "intype": "PUD_OFF",
+        "debounce": "25",
+        "read": false,
+        "x": 326,
+        "y": 501,
+        "wires": [
+            [
+                "3b86e14c.31cc4e"
+            ]
+        ]
+    },
+    {
+        "id": "d4a3183d.ed3088",
+        "type": "pi-gpiod in",
+        "z": "ea8f35ad.1d0438",
+        "name": "VX",
+        "host": "localhost",
+        "port": 8888,
+        "pin": "20",
+        "intype": "PUD_OFF",
+        "debounce": "25",
+        "read": false,
+        "x": 331,
+        "y": 414,
+        "wires": [
+            [
+                "dbf1fe58.86eb"
+            ]
+        ]
+    },
+    {
+        "id": "4d8c57ce.c1f5f8",
+        "type": "rpi-srf",
+        "z": "ea8f35ad.1d0438",
+        "name": "Ultrasonic",
+        "topic": "SRF",
+        "pulse": "0.5",
+        "pins": "",
+        "x": 318,
+        "y": 594,
+        "wires": [
+            [
+                "872968af.e38958"
+            ]
+        ]
+    },
+    {
+        "id": "dbf1fe58.86eb",
+        "type": "function",
+        "z": "ea8f35ad.1d0438",
+        "name": "LeftHandler",
+        "func": "if(msg.payload===0){\n    msg.payload= 'left'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 572,
+        "y": 409,
+        "wires": [
+            [
+                "38e3ad55.ae27f2"
+            ]
+        ]
+    },
+    {
+        "id": "872968af.e38958",
+        "type": "function",
+        "z": "ea8f35ad.1d0438",
+        "name": "UltraSonicHandler",
+        "func": "if(msg.payload<20){\n    msg.payload='geldi'\n}else if (msg.payload>100){\n    msg.payload='gitti'\n}else{\n    msg.payload='bos'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 583,
+        "wires": [
+            [
+                "38e3ad55.ae27f2"
+            ]
+        ]
+    },
+    {
+        "id": "3b86e14c.31cc4e",
+        "type": "function",
+        "z": "ea8f35ad.1d0438",
+        "name": "RightHandler",
+        "func": "if(msg.payload===0){\n    msg.payload= 'right'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 532,
+        "y": 504,
+        "wires": [
+            [
+                "38e3ad55.ae27f2"
+            ]
+        ]
+    },
+    {
+        "id": "feac18a4.30b8c8",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/public/message",
+        "wholemsg": "false"
+    }
+]
