@@ -21,8 +21,24 @@ Our group consists of one 3rd and two 4th grader Computer Engineers.
 Below you can find the sketch of our hardware setup
 ![Setup sketch](https://github.com/bounIoT/SmartBulletinBoard/blob/master/documents/pin_connections.jpeg?raw=true)
 
-### Flow of data 
-Draw flow of data in your **implementation**. At each node, specify the name of the code that processes the input data and produces the output. Note that the code name, input data name, output name must be consistent with the names at the Code part.
+# Flow of data
+Below you can find all the flows and their related codes inside this repository.
+## Cloud  
+
+### Student
+![Student Flow](https://github.com/bounIoT/SmartBulletinBoard/blob/master/cloud/student/student_flow.png?raw=true)
+### Api
+![Api Flow](https://github.com/bounIoT/SmartBulletinBoard/blob/master/cloud/api/api_flows.png?raw=true)
+### Advertiser
+![Advertiser Flow 1](https://raw.githubusercontent.com/bounIoT/SmartBulletinBoard/master/cloud/advertiser/advertiser_flow1.png)
+![Advertiser Flow 2](https://raw.githubusercontent.com/bounIoT/SmartBulletinBoard/master/cloud/advertiser/advertiser_flow2.png)
+## Pi
+![Pi Flow](https://github.com/bounIoT/SmartBulletinBoard/blob/master/node/pi_flow.png?raw=true)
+
+## Board UI
+Board UI is implemented using ReactJS. What is done in the board ui is listening to the websocket that is opened in pi's node-red flows and acting according to it. It can be seen under SmartBulletinBoard/board_ui/src/components/Gallery.js what the socket listener does.
+
+![Setup sketch](https://github.com/bounIoT/SmartBulletinBoard/blob/master/documents/pin_connections.jpeg?raw=true)
 
 ### Development Environment
 * Ubuntu 16.04
