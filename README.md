@@ -30,8 +30,8 @@ Below you can find all the flows and their related codes inside this repository.
 ### Api
 ![Api Flow](https://github.com/bounIoT/SmartBulletinBoard/blob/master/cloud/api/api_flows.png?raw=true)
 ### Advertiser
-![Advertiser Flow 1](https://raw.githubusercontent.com/bounIoT/SmartBulletinBoard/master/cloud/advertiser/advertiser_flow1.png)
-![Advertiser Flow 2](https://raw.githubusercontent.com/bounIoT/SmartBulletinBoard/master/cloud/advertiser/advertiser_flow2.png)
+![Advertiser Flow 1](https://i.imgur.com/GANqJRM.png)
+![Advertiser Flow 2](https://i.imgur.com/BVcMhGS.png)
 ## Pi
 ![Pi Flow](https://github.com/bounIoT/SmartBulletinBoard/blob/master/node/pi_flow.png?raw=true)
 
